@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+    argocd.argoproj.io/sync-wave: "1"
+  creationTimestamp: null
+  labels:
+    app: bad-developer
+    app.kubernetes.io/instance: bad-developer    
+  name: bad-developer
+spec:
+  port:
+    targetPort: 5555-tcp
+  to:
+    kind: Service
+    name: bad-developer
+    weight: 100
+status:
+  ingress:
+    - conditions:
+        - status: 'True'
+          type: Admitted
