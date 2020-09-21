@@ -11,7 +11,7 @@ metadata:
   name: bad-developer
 spec:
   port:
-    targetPort: 5555-tcp
+    targetPort: 8080-tcp
   to:
     kind: Service
     name: bad-developer
